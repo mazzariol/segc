@@ -9,11 +9,16 @@ void search_words(char *e){
     // search for files with the extensions .txt, .text and .asc;
     // start the search from directory /tmp/;
     // save the words found in the file words_tmp.
+
+    //find -regex '.*\.\(txt\|text\|asc\)'
 }
 
-char ** parse_string(char *str){
+/**
+ * Parse string from delimiter
+ * */
+char ** parse_string(char *str, char *delimiter){
     char ** res  = NULL;
-    char * p = strtok (str, ":");
+    char * p = strtok (str, delimiter);
     int n_spaces = 0;
 
     /* split string and append tokens to 'res' */
@@ -22,7 +27,7 @@ char ** parse_string(char *str){
         if (res == NULL)
             exit (-1); /* memory allocation failed */
         res[n_spaces-1] = p;
-        p = strtok (NULL, ":");
+        p = strtok (NULL, delimiter);
     }
     /* realloc one extra element for the last NULL*/
     res = realloc (res, sizeof (char*) * (n_spaces+1));
@@ -70,7 +75,7 @@ int main(int argc, char **argv) {
 
     printf ("eflag = %s, dflag = %s, ovalue = %s\n",
             eflag, dflag, ovalue);
-    extensions = parse_string(eflag);
+    extensions = parse_string(eflag, ":");
     /* print the result
         for (i = 0; i < n_spaces; ++i)
             printf ("res[%d] = %s\n", i, res[i]);*/
