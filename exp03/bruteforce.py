@@ -35,9 +35,7 @@ def access_zip_file_with_password(zip_file, list_pwd):
     password = ''
     try:
         with ZipFile(zip_file) as zf:
-            count = len(list_pwd) - 1
-            while count > 0 and password == '':
-                count -= 1
+            while len(list_pwd) > 0 and password == '':
                 try:
                     zf.extractall(path='/tmp/', pwd=list_pwd[0].encode('utf-8'))
                     password = list_pwd[0]
@@ -65,7 +63,6 @@ def main(argv):
                 elif opt in ('-f', '--file'):
                     zip_filename = arg
                 else:
-                    print('Unknown parameter!\n')
                     sys.exit(2)
             lines = read_file(source_list)
             pwd = access_zip_file_with_password(zip_filename, lines)
