@@ -1,0 +1,2 @@
+/home/guilherme/git/glaucoma/src/main/resources/static/exams/05826593-6/2017-10-30/Complete/05826593-6_2017-10-30_NV_Esquerdo.jpeg
+/home/guilherme/git/glaucoma/src/main/resources/static/exams/05826593-6/2017-10-30/Complete/05826593-6_2017-10-30_NV_Esquerdo.jpg
